@@ -1,4 +1,5 @@
 ﻿using Opus.TelasBase;
+using Opus.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace Opus
     public partial class frmMenu : Form
     {
         private bool _bMaximizado;
+        List<object> slTelas;
 
         private void AtualizarIconeMaximize()
         {
@@ -29,6 +31,8 @@ namespace Opus
             _bMaximizado = this.WindowState == FormWindowState.Maximized;
 
             AtualizarIconeMaximize();
+            slTelas = new List<object>();
+            AbreTela(typeof(frmPrincipal));
         }
 
         private void pbClose_Click(object sender, EventArgs e)
@@ -57,15 +61,115 @@ namespace Opus
             pbMaximize_Click(null, null);
         }
 
+        private void AbreTela(Type poTpForm)
+        {
+            object oTela = null;
+
+            foreach (object obj in slTelas)
+            {
+                if (obj.GetType() == poTpForm)
+                {
+                    oTela = obj;
+                    break;
+                }
+            }
+
+            if (oTela == null)
+            {
+                oTela = (Form)Activator.CreateInstance(poTpForm);
+                slTelas.Add(oTela);
+            }
+
+            ((Form)oTela).TopLevel = false;
+            ((Form)oTela).Dock = DockStyle.Fill;
+
+            pnConteudo.Controls.Add(((Form)oTela));
+            pnConteudo.Tag = ((Form)oTela);
+            ((Form)oTela).Show();
+        }
+
         private void lbNomeSistema_Click(object sender, EventArgs e)
         {
-            frmBase frm = new frmBase();
-            frm.TopLevel = false;
-            frm.Dock = DockStyle.Fill;
-        
-            pnConteudo.Controls.Add(frm);
-            pnConteudo.Tag = frm;
-            frm.Show();
+            AbreTela(typeof(frmPrincipal));
+        }
+
+        //Para controles pai
+        private void pnButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            ((Panel)sender).BackColor = Color.FromArgb(96, 96, 96);
+        }
+
+        private void pnButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            ((Panel)sender).BackColor = Color.FromArgb(110, 110, 110);
+        }
+
+        private void pnButton_MouseLeave(object sender, EventArgs e)
+        {
+            ((Panel)sender).BackColor = Color.FromArgb(110, 110, 110);
+        }
+
+        private void pnButton_MouseEnter(object sender, EventArgs e)
+        {
+            ((Panel)sender).BackColor = Color.FromArgb(100, 100, 100);
+        }
+
+        //Para controles filhos
+        private void ContentPai_MouseDown(object sender, MouseEventArgs e)
+        {
+            pnButton_MouseDown(((Control)sender).Parent, null);
+        }
+
+        private void ContentPai_MouseUp(object sender, MouseEventArgs e)
+        {
+            pnButton_MouseUp(((Control)sender).Parent, null);
+        }
+
+        private void ContentPai_MouseLeave(object sender, EventArgs e)
+        {
+            pnButton_MouseLeave(((Control)sender).Parent, null);
+        }
+
+        private void ContentPai_MouseEnter(object sender, EventArgs e)
+        {
+            pnButton_MouseEnter(((Control)sender).Parent, null);
+        }
+
+        //Itens do menu
+        private void pnCadastro_Click(object sender, EventArgs e)
+        {
+            pnUnidadesMedida.Visible = !pnUnidadesMedida.Visible;
+            pnProdutos.Visible = !pnProdutos.Visible;
+            pnObras.Visible = !pnObras.Visible;
+            pnComodos.Visible = !pnComodos.Visible;
+            pnAtividades.Visible = !pnAtividades.Visible;
+            
+            TrocarIconeExpandirExtrair_MouseClick(pbExpRet, null);
+        }
+
+        private void TrocarIconeExpandirExtrair_MouseClick(object sender, MouseEventArgs e)
+        {
+            bool bExpandir = false;
+
+            Panel pnCadastro = ((Panel)((Control)sender).Parent);
+            Panel pnCadastros = ((Panel)pnCadastro.Parent);
+            Control.ControlCollection controles = ((Control.ControlCollection)pnCadastros.Controls);
+
+            foreach (Control coControleFilho in controles)
+            {
+                if (!coControleFilho.Visible)
+                {
+                    bExpandir = true;
+                    break;
+                }
+            }
+
+            ((PictureBox)sender).Image = Properties.Resources.retrair;
+
+            if (bExpandir)
+            {
+                ((PictureBox)sender).Image = Properties.Resources.expandir;
+            }
         }
     }
 }
