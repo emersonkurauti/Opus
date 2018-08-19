@@ -40,6 +40,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pnCadastros = new System.Windows.Forms.Panel();
+            this.pnUnidadesMedida = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.pnProdutos = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.pnObras = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.pnComodos = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -54,15 +63,6 @@
             this.lbNomeSistema = new System.Windows.Forms.Label();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pnConteudo = new System.Windows.Forms.Panel();
-            this.pnObras = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.pnProdutos = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.pnUnidadesMedida = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
             this.pnTopo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMaximize)).BeginInit();
@@ -74,15 +74,15 @@
             this.pnMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnCadastros.SuspendLayout();
+            this.pnUnidadesMedida.SuspendLayout();
+            this.pnProdutos.SuspendLayout();
+            this.pnObras.SuspendLayout();
             this.pnComodos.SuspendLayout();
             this.pnAtividades.SuspendLayout();
             this.pnCadastro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbExpRet)).BeginInit();
             this.pnLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
-            this.pnObras.SuspendLayout();
-            this.pnProdutos.SuspendLayout();
-            this.pnUnidadesMedida.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnTopo
@@ -98,6 +98,7 @@
             this.pnTopo.Size = new System.Drawing.Size(800, 31);
             this.pnTopo.TabIndex = 0;
             this.pnTopo.DoubleClick += new System.EventHandler(this.pnTopo_DoubleClick);
+            this.pnTopo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MoverForm);
             // 
             // blNomeJanela
             // 
@@ -110,6 +111,7 @@
             this.blNomeJanela.TabIndex = 3;
             this.blNomeJanela.Text = "Gerenciamento de obras";
             this.blNomeJanela.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.blNomeJanela.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MoverForm);
             // 
             // pbMinimize
             // 
@@ -168,7 +170,7 @@
             // 
             this.scMenu.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
             this.scMenu.Panel2.Controls.Add(this.pnConteudo);
-            this.scMenu.Size = new System.Drawing.Size(800, 504);
+            this.scMenu.Size = new System.Drawing.Size(800, 569);
             this.scMenu.SplitterDistance = 189;
             this.scMenu.TabIndex = 1;
             // 
@@ -179,7 +181,7 @@
             this.pnMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMenu.Location = new System.Drawing.Point(0, 43);
             this.pnMenu.Name = "pnMenu";
-            this.pnMenu.Size = new System.Drawing.Size(189, 461);
+            this.pnMenu.Size = new System.Drawing.Size(189, 526);
             this.pnMenu.TabIndex = 1;
             // 
             // panel1
@@ -243,6 +245,150 @@
             this.pnCadastros.Name = "pnCadastros";
             this.pnCadastros.Size = new System.Drawing.Size(189, 190);
             this.pnCadastros.TabIndex = 3;
+            // 
+            // pnUnidadesMedida
+            // 
+            this.pnUnidadesMedida.Controls.Add(this.label7);
+            this.pnUnidadesMedida.Controls.Add(this.panel11);
+            this.pnUnidadesMedida.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pnUnidadesMedida.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnUnidadesMedida.Location = new System.Drawing.Point(0, 160);
+            this.pnUnidadesMedida.Name = "pnUnidadesMedida";
+            this.pnUnidadesMedida.Padding = new System.Windows.Forms.Padding(10, 1, 1, 1);
+            this.pnUnidadesMedida.Size = new System.Drawing.Size(189, 30);
+            this.pnUnidadesMedida.TabIndex = 10;
+            this.pnUnidadesMedida.Visible = false;
+            this.pnUnidadesMedida.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnButton_MouseDown);
+            this.pnUnidadesMedida.MouseEnter += new System.EventHandler(this.pnButton_MouseEnter);
+            this.pnUnidadesMedida.MouseLeave += new System.EventHandler(this.pnButton_MouseLeave);
+            this.pnUnidadesMedida.MouseHover += new System.EventHandler(this.pnButton_MouseEnter);
+            this.pnUnidadesMedida.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnButton_MouseUp);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.label7.Location = new System.Drawing.Point(21, 6);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(161, 21);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Unidades de medida...";
+            this.label7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseDown);
+            this.label7.MouseEnter += new System.EventHandler(this.ContentPai_MouseEnter);
+            this.label7.MouseLeave += new System.EventHandler(this.ContentPai_MouseLeave);
+            this.label7.MouseHover += new System.EventHandler(this.ContentPai_MouseEnter);
+            this.label7.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseUp);
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(180)))), ((int)(((byte)(230)))));
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel11.Location = new System.Drawing.Point(10, 1);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(5, 28);
+            this.panel11.TabIndex = 0;
+            this.panel11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseDown);
+            this.panel11.MouseEnter += new System.EventHandler(this.ContentPai_MouseEnter);
+            this.panel11.MouseLeave += new System.EventHandler(this.ContentPai_MouseLeave);
+            this.panel11.MouseHover += new System.EventHandler(this.ContentPai_MouseEnter);
+            this.panel11.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseUp);
+            // 
+            // pnProdutos
+            // 
+            this.pnProdutos.Controls.Add(this.label6);
+            this.pnProdutos.Controls.Add(this.panel9);
+            this.pnProdutos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pnProdutos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnProdutos.Location = new System.Drawing.Point(0, 130);
+            this.pnProdutos.Name = "pnProdutos";
+            this.pnProdutos.Padding = new System.Windows.Forms.Padding(10, 1, 1, 1);
+            this.pnProdutos.Size = new System.Drawing.Size(189, 30);
+            this.pnProdutos.TabIndex = 9;
+            this.pnProdutos.Visible = false;
+            this.pnProdutos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnButton_MouseDown);
+            this.pnProdutos.MouseEnter += new System.EventHandler(this.pnButton_MouseEnter);
+            this.pnProdutos.MouseLeave += new System.EventHandler(this.pnButton_MouseLeave);
+            this.pnProdutos.MouseHover += new System.EventHandler(this.pnButton_MouseEnter);
+            this.pnProdutos.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnButton_MouseUp);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.label6.Location = new System.Drawing.Point(21, 6);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(82, 21);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Produtos...";
+            this.label6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseDown);
+            this.label6.MouseEnter += new System.EventHandler(this.ContentPai_MouseEnter);
+            this.label6.MouseLeave += new System.EventHandler(this.ContentPai_MouseLeave);
+            this.label6.MouseHover += new System.EventHandler(this.ContentPai_MouseEnter);
+            this.label6.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseUp);
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(180)))), ((int)(((byte)(230)))));
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel9.Location = new System.Drawing.Point(10, 1);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(5, 28);
+            this.panel9.TabIndex = 0;
+            this.panel9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseDown);
+            this.panel9.MouseEnter += new System.EventHandler(this.ContentPai_MouseEnter);
+            this.panel9.MouseLeave += new System.EventHandler(this.ContentPai_MouseLeave);
+            this.panel9.MouseHover += new System.EventHandler(this.ContentPai_MouseEnter);
+            this.panel9.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseUp);
+            // 
+            // pnObras
+            // 
+            this.pnObras.Controls.Add(this.label5);
+            this.pnObras.Controls.Add(this.panel5);
+            this.pnObras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pnObras.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnObras.Location = new System.Drawing.Point(0, 100);
+            this.pnObras.Name = "pnObras";
+            this.pnObras.Padding = new System.Windows.Forms.Padding(10, 1, 1, 1);
+            this.pnObras.Size = new System.Drawing.Size(189, 30);
+            this.pnObras.TabIndex = 8;
+            this.pnObras.Visible = false;
+            this.pnObras.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnButton_MouseDown);
+            this.pnObras.MouseEnter += new System.EventHandler(this.pnButton_MouseEnter);
+            this.pnObras.MouseLeave += new System.EventHandler(this.pnButton_MouseLeave);
+            this.pnObras.MouseHover += new System.EventHandler(this.pnButton_MouseEnter);
+            this.pnObras.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnButton_MouseUp);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.label5.Location = new System.Drawing.Point(21, 6);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 21);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Obras...";
+            this.label5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseDown);
+            this.label5.MouseEnter += new System.EventHandler(this.ContentPai_MouseEnter);
+            this.label5.MouseLeave += new System.EventHandler(this.ContentPai_MouseLeave);
+            this.label5.MouseHover += new System.EventHandler(this.ContentPai_MouseEnter);
+            this.label5.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseUp);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(180)))), ((int)(((byte)(230)))));
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel5.Location = new System.Drawing.Point(10, 1);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(5, 28);
+            this.panel5.TabIndex = 0;
+            this.panel5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseDown);
+            this.panel5.MouseEnter += new System.EventHandler(this.ContentPai_MouseEnter);
+            this.panel5.MouseLeave += new System.EventHandler(this.ContentPai_MouseLeave);
+            this.panel5.MouseHover += new System.EventHandler(this.ContentPai_MouseEnter);
+            this.panel5.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseUp);
             // 
             // pnComodos
             // 
@@ -450,163 +596,20 @@
             this.pnConteudo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnConteudo.Location = new System.Drawing.Point(0, 0);
             this.pnConteudo.Name = "pnConteudo";
-            this.pnConteudo.Size = new System.Drawing.Size(607, 504);
+            this.pnConteudo.Size = new System.Drawing.Size(607, 569);
             this.pnConteudo.TabIndex = 0;
-            // 
-            // pnObras
-            // 
-            this.pnObras.Controls.Add(this.label5);
-            this.pnObras.Controls.Add(this.panel5);
-            this.pnObras.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnObras.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnObras.Location = new System.Drawing.Point(0, 100);
-            this.pnObras.Name = "pnObras";
-            this.pnObras.Padding = new System.Windows.Forms.Padding(10, 1, 1, 1);
-            this.pnObras.Size = new System.Drawing.Size(189, 30);
-            this.pnObras.TabIndex = 8;
-            this.pnObras.Visible = false;
-            this.pnObras.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnButton_MouseDown);
-            this.pnObras.MouseEnter += new System.EventHandler(this.pnButton_MouseEnter);
-            this.pnObras.MouseLeave += new System.EventHandler(this.pnButton_MouseLeave);
-            this.pnObras.MouseHover += new System.EventHandler(this.pnButton_MouseEnter);
-            this.pnObras.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnButton_MouseUp);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.label5.Location = new System.Drawing.Point(21, 6);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 21);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Obras...";
-            this.label5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseDown);
-            this.label5.MouseEnter += new System.EventHandler(this.ContentPai_MouseEnter);
-            this.label5.MouseLeave += new System.EventHandler(this.ContentPai_MouseLeave);
-            this.label5.MouseHover += new System.EventHandler(this.ContentPai_MouseEnter);
-            this.label5.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseUp);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(180)))), ((int)(((byte)(230)))));
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel5.Location = new System.Drawing.Point(10, 1);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(5, 28);
-            this.panel5.TabIndex = 0;
-            this.panel5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseDown);
-            this.panel5.MouseEnter += new System.EventHandler(this.ContentPai_MouseEnter);
-            this.panel5.MouseLeave += new System.EventHandler(this.ContentPai_MouseLeave);
-            this.panel5.MouseHover += new System.EventHandler(this.ContentPai_MouseEnter);
-            this.panel5.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseUp);
-            // 
-            // pnProdutos
-            // 
-            this.pnProdutos.Controls.Add(this.label6);
-            this.pnProdutos.Controls.Add(this.panel9);
-            this.pnProdutos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnProdutos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnProdutos.Location = new System.Drawing.Point(0, 130);
-            this.pnProdutos.Name = "pnProdutos";
-            this.pnProdutos.Padding = new System.Windows.Forms.Padding(10, 1, 1, 1);
-            this.pnProdutos.Size = new System.Drawing.Size(189, 30);
-            this.pnProdutos.TabIndex = 9;
-            this.pnProdutos.Visible = false;
-            this.pnProdutos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnButton_MouseDown);
-            this.pnProdutos.MouseEnter += new System.EventHandler(this.pnButton_MouseEnter);
-            this.pnProdutos.MouseLeave += new System.EventHandler(this.pnButton_MouseLeave);
-            this.pnProdutos.MouseHover += new System.EventHandler(this.pnButton_MouseEnter);
-            this.pnProdutos.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnButton_MouseUp);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.label6.Location = new System.Drawing.Point(21, 6);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(82, 21);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Produtos...";
-            this.label6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseDown);
-            this.label6.MouseEnter += new System.EventHandler(this.ContentPai_MouseEnter);
-            this.label6.MouseLeave += new System.EventHandler(this.ContentPai_MouseLeave);
-            this.label6.MouseHover += new System.EventHandler(this.ContentPai_MouseEnter);
-            this.label6.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseUp);
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(180)))), ((int)(((byte)(230)))));
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel9.Location = new System.Drawing.Point(10, 1);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(5, 28);
-            this.panel9.TabIndex = 0;
-            this.panel9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseDown);
-            this.panel9.MouseEnter += new System.EventHandler(this.ContentPai_MouseEnter);
-            this.panel9.MouseLeave += new System.EventHandler(this.ContentPai_MouseLeave);
-            this.panel9.MouseHover += new System.EventHandler(this.ContentPai_MouseEnter);
-            this.panel9.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseUp);
-            // 
-            // pnUnidadesMedida
-            // 
-            this.pnUnidadesMedida.Controls.Add(this.label7);
-            this.pnUnidadesMedida.Controls.Add(this.panel11);
-            this.pnUnidadesMedida.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnUnidadesMedida.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnUnidadesMedida.Location = new System.Drawing.Point(0, 160);
-            this.pnUnidadesMedida.Name = "pnUnidadesMedida";
-            this.pnUnidadesMedida.Padding = new System.Windows.Forms.Padding(10, 1, 1, 1);
-            this.pnUnidadesMedida.Size = new System.Drawing.Size(189, 30);
-            this.pnUnidadesMedida.TabIndex = 10;
-            this.pnUnidadesMedida.Visible = false;
-            this.pnUnidadesMedida.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnButton_MouseDown);
-            this.pnUnidadesMedida.MouseEnter += new System.EventHandler(this.pnButton_MouseEnter);
-            this.pnUnidadesMedida.MouseLeave += new System.EventHandler(this.pnButton_MouseLeave);
-            this.pnUnidadesMedida.MouseHover += new System.EventHandler(this.pnButton_MouseEnter);
-            this.pnUnidadesMedida.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnButton_MouseUp);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.label7.Location = new System.Drawing.Point(21, 6);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(161, 21);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Unidades de medida...";
-            this.label7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseDown);
-            this.label7.MouseEnter += new System.EventHandler(this.ContentPai_MouseEnter);
-            this.label7.MouseLeave += new System.EventHandler(this.ContentPai_MouseLeave);
-            this.label7.MouseHover += new System.EventHandler(this.ContentPai_MouseEnter);
-            this.label7.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseUp);
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(180)))), ((int)(((byte)(230)))));
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel11.Location = new System.Drawing.Point(10, 1);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(5, 28);
-            this.panel11.TabIndex = 0;
-            this.panel11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseDown);
-            this.panel11.MouseEnter += new System.EventHandler(this.ContentPai_MouseEnter);
-            this.panel11.MouseLeave += new System.EventHandler(this.ContentPai_MouseLeave);
-            this.panel11.MouseHover += new System.EventHandler(this.ContentPai_MouseEnter);
-            this.panel11.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseUp);
             // 
             // frmMenu
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(800, 535);
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.scMenu);
             this.Controls.Add(this.pnTopo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(800, 500);
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Opus";
@@ -623,6 +626,12 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnCadastros.ResumeLayout(false);
+            this.pnUnidadesMedida.ResumeLayout(false);
+            this.pnUnidadesMedida.PerformLayout();
+            this.pnProdutos.ResumeLayout(false);
+            this.pnProdutos.PerformLayout();
+            this.pnObras.ResumeLayout(false);
+            this.pnObras.PerformLayout();
             this.pnComodos.ResumeLayout(false);
             this.pnComodos.PerformLayout();
             this.pnAtividades.ResumeLayout(false);
@@ -632,12 +641,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbExpRet)).EndInit();
             this.pnLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
-            this.pnObras.ResumeLayout(false);
-            this.pnObras.PerformLayout();
-            this.pnProdutos.ResumeLayout(false);
-            this.pnProdutos.PerformLayout();
-            this.pnUnidadesMedida.ResumeLayout(false);
-            this.pnUnidadesMedida.PerformLayout();
             this.ResumeLayout(false);
 
         }

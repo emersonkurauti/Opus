@@ -6,16 +6,31 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Opus
 {
-    public partial class frmMenu : Form
+    public partial class frmMenu : Form 
     {
         private bool _bMaximizado;
+        byte byRed, byGreen, byBlue;
+        byte[] byCor;
         List<object> slTelas;
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void MoverForm(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
 
         private void AtualizarIconeMaximize()
         {
@@ -96,12 +111,16 @@ namespace Opus
         //Para controles pai
         private void pnButton_MouseDown(object sender, MouseEventArgs e)
         {
+            byRed = ((Panel)sender).BackColor.R;
+            byGreen = ((Panel)sender).BackColor.G;
+            byBlue = ((Panel)sender).BackColor.B;
+
             ((Panel)sender).BackColor = Color.FromArgb(96, 96, 96);
         }
 
         private void pnButton_MouseUp(object sender, MouseEventArgs e)
         {
-            ((Panel)sender).BackColor = Color.FromArgb(110, 110, 110);
+            ((Panel)sender).BackColor = Color.FromArgb(byRed, byGreen, byBlue);
         }
 
         private void pnButton_MouseLeave(object sender, EventArgs e)
