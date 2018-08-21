@@ -31,9 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.pnTopo = new System.Windows.Forms.Panel();
             this.blNomeJanela = new System.Windows.Forms.Label();
-            this.pbMinimize = new System.Windows.Forms.PictureBox();
-            this.pbMaximize = new System.Windows.Forms.PictureBox();
-            this.pbClose = new System.Windows.Forms.PictureBox();
             this.scMenu = new System.Windows.Forms.SplitContainer();
             this.pnMenu = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -56,17 +53,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pnCadastro = new System.Windows.Forms.Panel();
-            this.pbExpRet = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnLogo = new System.Windows.Forms.Panel();
             this.lbNomeSistema = new System.Windows.Forms.Label();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pnConteudo = new System.Windows.Forms.Panel();
+            this.pbExpRet = new System.Windows.Forms.PictureBox();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.pbMinimize = new System.Windows.Forms.PictureBox();
+            this.pbMaximize = new System.Windows.Forms.PictureBox();
+            this.pbClose = new System.Windows.Forms.PictureBox();
             this.pnTopo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMinimize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMaximize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scMenu)).BeginInit();
             this.scMenu.Panel1.SuspendLayout();
             this.scMenu.Panel2.SuspendLayout();
@@ -80,9 +77,12 @@
             this.pnComodos.SuspendLayout();
             this.pnAtividades.SuspendLayout();
             this.pnCadastro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbExpRet)).BeginInit();
             this.pnLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbExpRet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMinimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMaximize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbClose)).BeginInit();
             this.SuspendLayout();
             // 
             // pnTopo
@@ -95,7 +95,7 @@
             this.pnTopo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnTopo.Location = new System.Drawing.Point(0, 0);
             this.pnTopo.Name = "pnTopo";
-            this.pnTopo.Size = new System.Drawing.Size(800, 31);
+            this.pnTopo.Size = new System.Drawing.Size(800, 30);
             this.pnTopo.TabIndex = 0;
             this.pnTopo.DoubleClick += new System.EventHandler(this.pnTopo_DoubleClick);
             this.pnTopo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MoverForm);
@@ -107,56 +107,17 @@
             this.blNomeJanela.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.blNomeJanela.Location = new System.Drawing.Point(0, 0);
             this.blNomeJanela.Name = "blNomeJanela";
-            this.blNomeJanela.Size = new System.Drawing.Size(180, 31);
+            this.blNomeJanela.Size = new System.Drawing.Size(180, 30);
             this.blNomeJanela.TabIndex = 3;
             this.blNomeJanela.Text = "Gerenciamento de obras";
             this.blNomeJanela.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.blNomeJanela.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MoverForm);
             // 
-            // pbMinimize
-            // 
-            this.pbMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbMinimize.Image = global::Opus.Properties.Resources.Minimize;
-            this.pbMinimize.Location = new System.Drawing.Point(714, 3);
-            this.pbMinimize.Name = "pbMinimize";
-            this.pbMinimize.Size = new System.Drawing.Size(25, 25);
-            this.pbMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbMinimize.TabIndex = 2;
-            this.pbMinimize.TabStop = false;
-            this.pbMinimize.Click += new System.EventHandler(this.pbMinimize_Click);
-            // 
-            // pbMaximize
-            // 
-            this.pbMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbMaximize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbMaximize.Image = ((System.Drawing.Image)(resources.GetObject("pbMaximize.Image")));
-            this.pbMaximize.Location = new System.Drawing.Point(742, 3);
-            this.pbMaximize.Name = "pbMaximize";
-            this.pbMaximize.Size = new System.Drawing.Size(25, 25);
-            this.pbMaximize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbMaximize.TabIndex = 1;
-            this.pbMaximize.TabStop = false;
-            this.pbMaximize.Click += new System.EventHandler(this.pbMaximize_Click);
-            // 
-            // pbClose
-            // 
-            this.pbClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbClose.Image = global::Opus.Properties.Resources.Cancel;
-            this.pbClose.Location = new System.Drawing.Point(770, 3);
-            this.pbClose.Name = "pbClose";
-            this.pbClose.Size = new System.Drawing.Size(25, 25);
-            this.pbClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbClose.TabIndex = 0;
-            this.pbClose.TabStop = false;
-            this.pbClose.Click += new System.EventHandler(this.pbClose_Click);
-            // 
             // scMenu
             // 
             this.scMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.scMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scMenu.Location = new System.Drawing.Point(0, 31);
+            this.scMenu.Location = new System.Drawing.Point(0, 30);
             this.scMenu.Name = "scMenu";
             // 
             // scMenu.Panel1
@@ -170,7 +131,7 @@
             // 
             this.scMenu.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
             this.scMenu.Panel2.Controls.Add(this.pnConteudo);
-            this.scMenu.Size = new System.Drawing.Size(800, 569);
+            this.scMenu.Size = new System.Drawing.Size(800, 570);
             this.scMenu.SplitterDistance = 189;
             this.scMenu.TabIndex = 1;
             // 
@@ -179,9 +140,9 @@
             this.pnMenu.Controls.Add(this.panel1);
             this.pnMenu.Controls.Add(this.pnCadastros);
             this.pnMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnMenu.Location = new System.Drawing.Point(0, 43);
+            this.pnMenu.Location = new System.Drawing.Point(0, 40);
             this.pnMenu.Name = "pnMenu";
-            this.pnMenu.Size = new System.Drawing.Size(189, 526);
+            this.pnMenu.Size = new System.Drawing.Size(189, 530);
             this.pnMenu.TabIndex = 1;
             // 
             // panel1
@@ -258,6 +219,7 @@
             this.pnUnidadesMedida.Size = new System.Drawing.Size(189, 30);
             this.pnUnidadesMedida.TabIndex = 10;
             this.pnUnidadesMedida.Visible = false;
+            this.pnUnidadesMedida.Click += new System.EventHandler(this.pnUnidadesMedida_Click);
             this.pnUnidadesMedida.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnButton_MouseDown);
             this.pnUnidadesMedida.MouseEnter += new System.EventHandler(this.pnButton_MouseEnter);
             this.pnUnidadesMedida.MouseLeave += new System.EventHandler(this.pnButton_MouseLeave);
@@ -274,6 +236,7 @@
             this.label7.Size = new System.Drawing.Size(161, 21);
             this.label7.TabIndex = 6;
             this.label7.Text = "Unidades de medida...";
+            this.label7.Click += new System.EventHandler(this.pnUnidadesMedida_Click);
             this.label7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseDown);
             this.label7.MouseEnter += new System.EventHandler(this.ContentPai_MouseEnter);
             this.label7.MouseLeave += new System.EventHandler(this.ContentPai_MouseLeave);
@@ -288,6 +251,7 @@
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(5, 28);
             this.panel11.TabIndex = 0;
+            this.panel11.Click += new System.EventHandler(this.pnUnidadesMedida_Click);
             this.panel11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseDown);
             this.panel11.MouseEnter += new System.EventHandler(this.ContentPai_MouseEnter);
             this.panel11.MouseLeave += new System.EventHandler(this.ContentPai_MouseLeave);
@@ -505,24 +469,6 @@
             this.pnCadastro.MouseHover += new System.EventHandler(this.pnButton_MouseEnter);
             this.pnCadastro.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnButton_MouseUp);
             // 
-            // pbExpRet
-            // 
-            this.pbExpRet.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pbExpRet.Image = global::Opus.Properties.Resources.expandir;
-            this.pbExpRet.Location = new System.Drawing.Point(148, 1);
-            this.pbExpRet.Name = "pbExpRet";
-            this.pbExpRet.Size = new System.Drawing.Size(40, 38);
-            this.pbExpRet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbExpRet.TabIndex = 5;
-            this.pbExpRet.TabStop = false;
-            this.pbExpRet.Click += new System.EventHandler(this.pnCadastro_Click);
-            this.pbExpRet.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TrocarIconeExpandirExtrair_MouseClick);
-            this.pbExpRet.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseDown);
-            this.pbExpRet.MouseEnter += new System.EventHandler(this.ContentPai_MouseEnter);
-            this.pbExpRet.MouseLeave += new System.EventHandler(this.ContentPai_MouseLeave);
-            this.pbExpRet.MouseHover += new System.EventHandler(this.ContentPai_MouseEnter);
-            this.pbExpRet.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseUp);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -564,7 +510,7 @@
             this.pnLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnLogo.Location = new System.Drawing.Point(0, 0);
             this.pnLogo.Name = "pnLogo";
-            this.pnLogo.Size = new System.Drawing.Size(189, 43);
+            this.pnLogo.Size = new System.Drawing.Size(189, 40);
             this.pnLogo.TabIndex = 0;
             // 
             // lbNomeSistema
@@ -574,30 +520,86 @@
             this.lbNomeSistema.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.lbNomeSistema.Location = new System.Drawing.Point(63, 0);
             this.lbNomeSistema.Name = "lbNomeSistema";
-            this.lbNomeSistema.Size = new System.Drawing.Size(126, 43);
+            this.lbNomeSistema.Size = new System.Drawing.Size(126, 40);
             this.lbNomeSistema.TabIndex = 1;
             this.lbNomeSistema.Text = "Opus";
-            this.lbNomeSistema.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbNomeSistema.Click += new System.EventHandler(this.lbNomeSistema_Click);
-            // 
-            // pbLogo
-            // 
-            this.pbLogo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-            this.pbLogo.Location = new System.Drawing.Point(0, 0);
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(63, 43);
-            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbLogo.TabIndex = 0;
-            this.pbLogo.TabStop = false;
             // 
             // pnConteudo
             // 
             this.pnConteudo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnConteudo.Location = new System.Drawing.Point(0, 0);
             this.pnConteudo.Name = "pnConteudo";
-            this.pnConteudo.Size = new System.Drawing.Size(607, 569);
+            this.pnConteudo.Size = new System.Drawing.Size(607, 570);
             this.pnConteudo.TabIndex = 0;
+            // 
+            // pbExpRet
+            // 
+            this.pbExpRet.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pbExpRet.Image = global::Opus.Properties.Resources.expandir;
+            this.pbExpRet.Location = new System.Drawing.Point(148, 1);
+            this.pbExpRet.Name = "pbExpRet";
+            this.pbExpRet.Size = new System.Drawing.Size(40, 38);
+            this.pbExpRet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbExpRet.TabIndex = 5;
+            this.pbExpRet.TabStop = false;
+            this.pbExpRet.Click += new System.EventHandler(this.pnCadastro_Click);
+            this.pbExpRet.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TrocarIconeExpandirExtrair_MouseClick);
+            this.pbExpRet.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseDown);
+            this.pbExpRet.MouseEnter += new System.EventHandler(this.ContentPai_MouseEnter);
+            this.pbExpRet.MouseLeave += new System.EventHandler(this.ContentPai_MouseLeave);
+            this.pbExpRet.MouseHover += new System.EventHandler(this.ContentPai_MouseEnter);
+            this.pbExpRet.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ContentPai_MouseUp);
+            // 
+            // pbLogo
+            // 
+            this.pbLogo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pbLogo.Image = global::Opus.Properties.Resources.Logo;
+            this.pbLogo.Location = new System.Drawing.Point(0, 0);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(63, 40);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLogo.TabIndex = 0;
+            this.pbLogo.TabStop = false;
+            // 
+            // pbMinimize
+            // 
+            this.pbMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbMinimize.Image = global::Opus.Properties.Resources.Minimize;
+            this.pbMinimize.Location = new System.Drawing.Point(714, 3);
+            this.pbMinimize.Name = "pbMinimize";
+            this.pbMinimize.Size = new System.Drawing.Size(25, 25);
+            this.pbMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbMinimize.TabIndex = 2;
+            this.pbMinimize.TabStop = false;
+            this.pbMinimize.Click += new System.EventHandler(this.pbMinimize_Click);
+            // 
+            // pbMaximize
+            // 
+            this.pbMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbMaximize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbMaximize.Image = ((System.Drawing.Image)(resources.GetObject("pbMaximize.Image")));
+            this.pbMaximize.Location = new System.Drawing.Point(742, 3);
+            this.pbMaximize.Name = "pbMaximize";
+            this.pbMaximize.Size = new System.Drawing.Size(25, 25);
+            this.pbMaximize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbMaximize.TabIndex = 1;
+            this.pbMaximize.TabStop = false;
+            this.pbMaximize.Click += new System.EventHandler(this.pbMaximize_Click);
+            // 
+            // pbClose
+            // 
+            this.pbClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbClose.Image = global::Opus.Properties.Resources.Cancel;
+            this.pbClose.Location = new System.Drawing.Point(770, 3);
+            this.pbClose.Name = "pbClose";
+            this.pbClose.Size = new System.Drawing.Size(25, 25);
+            this.pbClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbClose.TabIndex = 0;
+            this.pbClose.TabStop = false;
+            this.pbClose.Click += new System.EventHandler(this.pbClose_Click);
             // 
             // frmMenu
             // 
@@ -609,14 +611,12 @@
             this.Controls.Add(this.scMenu);
             this.Controls.Add(this.pnTopo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Opus";
             this.pnTopo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbMinimize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMaximize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbClose)).EndInit();
             this.scMenu.Panel1.ResumeLayout(false);
             this.scMenu.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.scMenu)).EndInit();
@@ -638,9 +638,12 @@
             this.pnAtividades.PerformLayout();
             this.pnCadastro.ResumeLayout(false);
             this.pnCadastro.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbExpRet)).EndInit();
             this.pnLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbExpRet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMinimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMaximize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbClose)).EndInit();
             this.ResumeLayout(false);
 
         }

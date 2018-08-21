@@ -2,13 +2,8 @@
 using Opus.View;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Opus
@@ -17,7 +12,7 @@ namespace Opus
     {
         private bool _bMaximizado;
         byte byRed, byGreen, byBlue;
-        byte[] byCor;
+        string nmPanelClicado;
         List<object> slTelas;
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -98,9 +93,26 @@ namespace Opus
             ((Form)oTela).TopLevel = false;
             ((Form)oTela).Dock = DockStyle.Fill;
 
+            if(pnConteudo.Controls.Count > 0)
+            {
+                pnConteudo.Controls.RemoveAt(0);
+            }
+
             pnConteudo.Controls.Add(((Form)oTela));
             pnConteudo.Tag = ((Form)oTela);
             ((Form)oTela).Show();
+
+            LimparMenuClicado();
+        }
+
+        private void LimparMenuClicado()
+        {
+            pnUnidadesMedida.BackColor = Color.FromArgb(110, 110, 110);
+            pnProdutos.BackColor = Color.FromArgb(110, 110, 110);
+            pnObras.BackColor = Color.FromArgb(110, 110, 110);
+            pnComodos.BackColor = Color.FromArgb(110, 110, 110);
+            pnAtividades.BackColor = Color.FromArgb(110, 110, 110);
+            nmPanelClicado = string.Empty;
         }
 
         private void lbNomeSistema_Click(object sender, EventArgs e)
@@ -108,9 +120,20 @@ namespace Opus
             AbreTela(typeof(frmPrincipal));
         }
 
+        private void pnUnidadesMedida_Click(object sender, EventArgs e)
+        {
+            AbreTela(typeof(frmCadUnidadeMedida));
+            pnUnidadesMedida.BackColor = Color.FromArgb(96, 96, 96);
+            nmPanelClicado = pnUnidadesMedida.Name;
+        }
+
         //Para controles pai
         private void pnButton_MouseDown(object sender, MouseEventArgs e)
         {
+            if (nmPanelClicado == ((Panel)sender).Name)
+            {
+                return;
+            }
             byRed = ((Panel)sender).BackColor.R;
             byGreen = ((Panel)sender).BackColor.G;
             byBlue = ((Panel)sender).BackColor.B;
@@ -120,17 +143,29 @@ namespace Opus
 
         private void pnButton_MouseUp(object sender, MouseEventArgs e)
         {
+            if (nmPanelClicado == ((Panel)sender).Name)
+            {
+                return;
+            }
             ((Panel)sender).BackColor = Color.FromArgb(byRed, byGreen, byBlue);
         }
 
         private void pnButton_MouseLeave(object sender, EventArgs e)
         {
+            if (nmPanelClicado == ((Panel)sender).Name)
+            {
+                return;
+            }
             ((Panel)sender).BackColor = Color.FromArgb(110, 110, 110);
         }
 
         private void pnButton_MouseEnter(object sender, EventArgs e)
         {
-            ((Panel)sender).BackColor = Color.FromArgb(100, 100, 100);
+            if (nmPanelClicado == ((Panel)sender).Name)
+            {
+                return;
+            }
+            ((Panel)sender).BackColor = Color.FromArgb(135, 135, 135);
         }
 
         //Para controles filhos
