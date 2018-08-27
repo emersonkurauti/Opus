@@ -15,6 +15,15 @@ namespace Opus.View
             pnFormulario.Visible = false;
             pnFiltro.Height = 40;
             dgvFiltro.Rows.Add(string.Empty);
+            DefinirStatusBotoes(true);
+        }
+
+        private void DefinirStatusBotoes(bool bStatusInicial)
+        {
+            btnCancelar.Enabled = !bStatusInicial;
+            btnSalvar.Enabled = !bStatusInicial;
+            btnNovo.Enabled = bStatusInicial;
+            btnExcluir.Enabled = bStatusInicial;
         }
 
         private void pbExpRet_Click(object sender, EventArgs e)
@@ -114,6 +123,41 @@ namespace Opus.View
         private void ContentPai_MouseEnter(object sender, EventArgs e)
         {
             pnTitulo_MouseEnter(((Control)sender).Parent, null);
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            cobUnidadeMedidaBindingSource.CancelEdit();
+            DefinirStatusBotoes(true);
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            cobUnidadeMedidaBindingSource.EndEdit();
+            cobUnidadeMedidaTableAdapter.Adapter.Update(opus_dbDataSet);
+            DefinirStatusBotoes(true);
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            cobUnidadeMedidaBindingSource.AddNew();
+            DefinirStatusBotoes(false);
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            cobUnidadeMedidaBindingSource.RemoveCurrent();
+            DefinirStatusBotoes(true);
+        }
+
+        private void dgvDados_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            if (string.IsNullOrEmpty(e.FormattedValue.ToString()))
+            {
+                dgvDados.CancelEdit();
+                cobUnidadeMedidaBindingSource.CancelEdit();
+                DefinirStatusBotoes(true);
+            }
         }
     }
 }
