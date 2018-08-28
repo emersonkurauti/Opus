@@ -1,43 +1,20 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Opus.View
 {
-    public partial class frmCadUnidadeMedida : Opus.TelasBase.frmBase
+    public partial class frmCadUnidadeMedida : TelasBase.frmCadBase
     {
-        byte byRed, byGreen, byBlue;
-
         public frmCadUnidadeMedida()
         {
             InitializeComponent();
-            pnLista.Dock = DockStyle.Fill;
-            pnFormulario.Visible = false;
-            pnFiltro.Height = 40;
+            InicialiazarForm();
+        }
+
+        protected override void InicialiazarForm()
+        {
+            base.InicialiazarForm();
             dgvFiltro.Rows.Add(string.Empty);
-            DefinirStatusBotoes(true);
-        }
-
-        private void DefinirStatusBotoes(bool bStatusInicial)
-        {
-            btnCancelar.Enabled = !bStatusInicial;
-            btnSalvar.Enabled = !bStatusInicial;
-            btnNovo.Enabled = bStatusInicial;
-            btnExcluir.Enabled = bStatusInicial;
-        }
-
-        private void pbExpRet_Click(object sender, EventArgs e)
-        {
-            pnFiltros.Visible = !pnFiltros.Visible;
-            bool bExpandir = !pnFiltros.Visible;
-
-            pbExpRet.Image = Properties.Resources.expandir;
-            pnFiltro.Height = 40;
-            if (!bExpandir)
-            {
-                pbExpRet.Image = Properties.Resources.retrair;
-                pnFiltro.Height = 85;
-            }
         }
 
         private void frmCadUnidadeMedida_Load(object sender, EventArgs e)
@@ -61,6 +38,32 @@ namespace Opus.View
             cobUnidadeMedidaBindingSource.Filter = "deUnidadeMedida like '%" + dgvFiltro.Rows[0].Cells["deUnidadeMedida"].Value.ToString() + "%'";
         }
 
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            cobUnidadeMedidaBindingSource.AddNew();
+            base.btnNovo_Click(sender, e);
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            cobUnidadeMedidaBindingSource.RemoveCurrent();
+            base.btnExcluir_Click(sender, e);
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            cobUnidadeMedidaBindingSource.CancelEdit();
+            this.cobUnidadeMedidaTableAdapter.Fill(this.opus_dbDataSet.cobUnidadeMedida);
+            base.btnCancelar_Click(sender, e);
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            cobUnidadeMedidaBindingSource.EndEdit();
+            cobUnidadeMedidaTableAdapter.Adapter.Update(opus_dbDataSet);
+            base.btnSalvar_Click(sender, e);
+        }
+
         private void dgvFiltro_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             FiltrarRegistros();
@@ -74,80 +77,12 @@ namespace Opus.View
         private void pbLimparFiltro_Click(object sender, EventArgs e)
         {
             cobUnidadeMedidaBindingSource.Filter = string.Empty;
+            dgvFiltro.CancelEdit();
             if (dgvFiltro.Rows[0].Cells["deUnidadeMedida"].Value == null)
             {
                 return;
             }
             dgvFiltro.Rows[0].Cells["deUnidadeMedida"].Value = string.Empty;
-        }
-
-        private void pnTitulo_MouseEnter(object sender, EventArgs e)
-        {
-            ((Control)sender).BackColor = Color.FromArgb(135, 135, 135);
-        }
-
-        private void pnTitulo_MouseDown(object sender, MouseEventArgs e)
-        {
-            byRed = ((Control)sender).BackColor.R;
-            byGreen = ((Control)sender).BackColor.G;
-            byBlue = ((Control)sender).BackColor.B;
-
-            ((Control)sender).BackColor = Color.FromArgb(96, 96, 96);
-        }
-
-        private void pnTitulo_MouseLeave(object sender, EventArgs e)
-        {
-            ((Control)sender).BackColor = Color.FromArgb(110, 110, 110);
-        }
-
-        private void pnTitulo_MouseUp(object sender, MouseEventArgs e)
-        {
-            ((Control)sender).BackColor = Color.FromArgb(byRed, byGreen, byBlue);
-        }
-
-        private void ContentPai_MouseDown(object sender, MouseEventArgs e)
-        {
-            pnTitulo_MouseDown(((Control)sender).Parent, null);
-        }
-
-        private void ContentPai_MouseUp(object sender, MouseEventArgs e)
-        {
-            pnTitulo_MouseUp(((Control)sender).Parent, null);
-        }
-
-        private void ContentPai_MouseLeave(object sender, EventArgs e)
-        {
-            pnTitulo_MouseLeave(((Control)sender).Parent, null);
-        }
-
-        private void ContentPai_MouseEnter(object sender, EventArgs e)
-        {
-            pnTitulo_MouseEnter(((Control)sender).Parent, null);
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            cobUnidadeMedidaBindingSource.CancelEdit();
-            DefinirStatusBotoes(true);
-        }
-
-        private void btnSalvar_Click(object sender, EventArgs e)
-        {
-            cobUnidadeMedidaBindingSource.EndEdit();
-            cobUnidadeMedidaTableAdapter.Adapter.Update(opus_dbDataSet);
-            DefinirStatusBotoes(true);
-        }
-
-        private void btnNovo_Click(object sender, EventArgs e)
-        {
-            cobUnidadeMedidaBindingSource.AddNew();
-            DefinirStatusBotoes(false);
-        }
-
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            cobUnidadeMedidaBindingSource.RemoveCurrent();
-            DefinirStatusBotoes(true);
         }
 
         private void dgvDados_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
@@ -158,6 +93,11 @@ namespace Opus.View
                 cobUnidadeMedidaBindingSource.CancelEdit();
                 DefinirStatusBotoes(true);
             }
+        }
+
+        private void dgvDados_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            DefinirStatusBotoes(false);
         }
     }
 }
