@@ -1,17 +1,32 @@
 ﻿using System;
+using System.Data;
 using System.Drawing;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace Opus.TelasBase
 {
     public partial class frmCadBase : frmBase
     {
-        byte byRed, byGreen, byBlue;
+        private byte byRed, byGreen, byBlue;
+
+        protected object TableAdapter;
+        protected object oAdapter;
+        protected BindingSource oBindingSource;
+        protected Type tpTableAdapter;
+        protected DataTable dtDados;
+        protected Opus_dbDataSet oDataSet;
 
         public frmCadBase()
         {
             InitializeComponent();
             DefinirStatusBotoes(true);
+        }
+
+        protected virtual void CarregarObjetos()
+        {
+            MethodInfo oMetodo = tpTableAdapter.GetMethod("Fill");
+            oMetodo.Invoke(TableAdapter, new object[] { dtDados });
         }
 
         protected virtual void InicialiazarForm()
@@ -89,21 +104,28 @@ namespace Opus.TelasBase
 
         protected virtual void btnNovo_Click(object sender, EventArgs e)
         {
+            oBindingSource.AddNew();
             DefinirStatusBotoes(false);
         }
 
         protected virtual void btnExcluir_Click(object sender, EventArgs e)
         {
+            oBindingSource.RemoveCurrent();
             DefinirStatusBotoes(false);
         }
 
         protected virtual void btnCancelar_Click(object sender, EventArgs e)
         {
+            oBindingSource.CancelEdit();
+            CarregarObjetos();
             DefinirStatusBotoes(true);
         }
 
         protected virtual void btnSalvar_Click(object sender, EventArgs e)
         {
+            oBindingSource.EndEdit();
+            MethodInfo oMetodo = oAdapter.GetType().GetMethod("Update", new Type[] { typeof(DataSet) });
+            oMetodo.Invoke(oAdapter, new object[] { oDataSet });            
             DefinirStatusBotoes(true);
         }
     }

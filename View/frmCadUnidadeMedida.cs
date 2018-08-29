@@ -11,15 +11,21 @@ namespace Opus.View
             InicialiazarForm();
         }
 
+        private void frmCadUnidadeMedida_Load(object sender, EventArgs e)
+        {
+            dtDados = this.opus_dbDataSet.cobUnidadeMedida;
+            TableAdapter = this.cobUnidadeMedidaTableAdapter;
+            oAdapter = this.cobUnidadeMedidaTableAdapter.Adapter;
+            tpTableAdapter = typeof(Opus_dbDataSetTableAdapters.cobUnidadeMedidaTableAdapter);
+            oBindingSource = cobUnidadeMedidaBindingSource;
+            oDataSet = opus_dbDataSet;
+            CarregarObjetos();
+        }
+
         protected override void InicialiazarForm()
         {
             base.InicialiazarForm();
             dgvFiltro.Rows.Add(string.Empty);
-        }
-
-        private void frmCadUnidadeMedida_Load(object sender, EventArgs e)
-        {
-            this.cobUnidadeMedidaTableAdapter.Fill(this.opus_dbDataSet.cobUnidadeMedida);
         }
 
         private void FiltrarRegistros()
@@ -36,32 +42,6 @@ namespace Opus.View
                 return;
             }
             cobUnidadeMedidaBindingSource.Filter = "deUnidadeMedida like '%" + dgvFiltro.Rows[0].Cells["deUnidadeMedida"].Value.ToString() + "%'";
-        }
-
-        private void btnNovo_Click(object sender, EventArgs e)
-        {
-            cobUnidadeMedidaBindingSource.AddNew();
-            base.btnNovo_Click(sender, e);
-        }
-
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            cobUnidadeMedidaBindingSource.RemoveCurrent();
-            base.btnExcluir_Click(sender, e);
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            cobUnidadeMedidaBindingSource.CancelEdit();
-            this.cobUnidadeMedidaTableAdapter.Fill(this.opus_dbDataSet.cobUnidadeMedida);
-            base.btnCancelar_Click(sender, e);
-        }
-
-        private void btnSalvar_Click(object sender, EventArgs e)
-        {
-            cobUnidadeMedidaBindingSource.EndEdit();
-            cobUnidadeMedidaTableAdapter.Adapter.Update(opus_dbDataSet);
-            base.btnSalvar_Click(sender, e);
         }
 
         private void dgvFiltro_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)

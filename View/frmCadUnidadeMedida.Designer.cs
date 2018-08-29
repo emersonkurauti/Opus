@@ -40,13 +40,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvDados = new System.Windows.Forms.DataGridView();
-            this.cdUnidadeMedidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deUnidadeMedidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cobUnidadeMedidaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.opus_dbDataSet = new Opus.Opus_dbDataSet();
             this.cobUnidadeMedidaTableAdapter = new Opus.Opus_dbDataSetTableAdapters.cobUnidadeMedidaTableAdapter();
             this.dgvFiltro = new System.Windows.Forms.DataGridView();
             this.deUnidadeMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cdUnidadeMedidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deUnidadeMedidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnFiltro.SuspendLayout();
             this.pnFiltros.SuspendLayout();
             this.pnTitulo.SuspendLayout();
@@ -74,28 +74,24 @@
             this.btnSalvar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
             this.btnSalvar.FlatAppearance.BorderSize = 0;
             this.btnSalvar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnCancelar
             // 
             this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnExcluir
             // 
             this.btnExcluir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
             this.btnExcluir.FlatAppearance.BorderSize = 0;
             this.btnExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnNovo
             // 
             this.btnNovo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
             this.btnNovo.FlatAppearance.BorderSize = 0;
             this.btnNovo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // pnLista
             // 
@@ -167,20 +163,6 @@
             this.dgvDados.TabIndex = 2;
             this.dgvDados.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDados_CellEndEdit);
             this.dgvDados.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvDados_CellValidating);
-            // 
-            // cdUnidadeMedidaDataGridViewTextBoxColumn
-            // 
-            this.cdUnidadeMedidaDataGridViewTextBoxColumn.DataPropertyName = "cdUnidadeMedida";
-            this.cdUnidadeMedidaDataGridViewTextBoxColumn.HeaderText = "cdUnidadeMedida";
-            this.cdUnidadeMedidaDataGridViewTextBoxColumn.Name = "cdUnidadeMedidaDataGridViewTextBoxColumn";
-            this.cdUnidadeMedidaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // deUnidadeMedidaDataGridViewTextBoxColumn
-            // 
-            this.deUnidadeMedidaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.deUnidadeMedidaDataGridViewTextBoxColumn.DataPropertyName = "deUnidadeMedida";
-            this.deUnidadeMedidaDataGridViewTextBoxColumn.HeaderText = "Unidade de medida";
-            this.deUnidadeMedidaDataGridViewTextBoxColumn.Name = "deUnidadeMedidaDataGridViewTextBoxColumn";
             // 
             // cobUnidadeMedidaBindingSource
             // 
@@ -262,6 +244,20 @@
             this.deUnidadeMedida.HeaderText = "Unidade de medida";
             this.deUnidadeMedida.Name = "deUnidadeMedida";
             // 
+            // cdUnidadeMedidaDataGridViewTextBoxColumn
+            // 
+            this.cdUnidadeMedidaDataGridViewTextBoxColumn.DataPropertyName = "cdUnidadeMedida";
+            this.cdUnidadeMedidaDataGridViewTextBoxColumn.HeaderText = "cdUnidadeMedida";
+            this.cdUnidadeMedidaDataGridViewTextBoxColumn.Name = "cdUnidadeMedidaDataGridViewTextBoxColumn";
+            this.cdUnidadeMedidaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // deUnidadeMedidaDataGridViewTextBoxColumn
+            // 
+            this.deUnidadeMedidaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.deUnidadeMedidaDataGridViewTextBoxColumn.DataPropertyName = "deUnidadeMedida";
+            this.deUnidadeMedidaDataGridViewTextBoxColumn.HeaderText = "Unidade de medida";
+            this.deUnidadeMedidaDataGridViewTextBoxColumn.Name = "deUnidadeMedidaDataGridViewTextBoxColumn";
+            // 
             // frmCadUnidadeMedida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,12 +284,12 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvDados;
-        private Opus_dbDataSet opus_dbDataSet;
-        private System.Windows.Forms.BindingSource cobUnidadeMedidaBindingSource;
         private Opus_dbDataSetTableAdapters.cobUnidadeMedidaTableAdapter cobUnidadeMedidaTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cdUnidadeMedidaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deUnidadeMedidaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridView dgvFiltro;
         private System.Windows.Forms.DataGridViewTextBoxColumn deUnidadeMedida;
+        private Opus_dbDataSet opus_dbDataSet;
+        public System.Windows.Forms.BindingSource cobUnidadeMedidaBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cdUnidadeMedidaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deUnidadeMedidaDataGridViewTextBoxColumn;
     }
 }
